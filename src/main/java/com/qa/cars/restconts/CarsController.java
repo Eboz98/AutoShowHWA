@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CarsController {
-	@RequestMapping(path = "/test", method = RequestMethod.GET)
+	@RequestMapping(path = "/", method = RequestMethod.GET)
 	public String hello() {
 		return "Welcome, to my AutoShow Website!";
 	}
-}
+} // Project is up and running.
