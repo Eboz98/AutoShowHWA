@@ -4,10 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AutoShowHwaApplication {
+public class Runner {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AutoShowHwaApplication.class, args);
+		SpringApplication.run(Runner.class, args);
+		
 	}
 
 }
