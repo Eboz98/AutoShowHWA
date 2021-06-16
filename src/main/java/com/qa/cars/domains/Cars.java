@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Cars {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO_INCREMENT
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer id;
 
 	private String make;
