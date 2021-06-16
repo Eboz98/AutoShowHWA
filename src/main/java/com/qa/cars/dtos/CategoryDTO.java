@@ -2,10 +2,8 @@ package com.qa.cars.dtos;
 
 import java.util.List;
 
-import com.qa.cars.dtos.CarsDTO;
-
 public class CategoryDTO {
-	
+
 	private Integer id;
 
 	private String name;
