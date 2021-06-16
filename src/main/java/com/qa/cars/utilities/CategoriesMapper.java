@@ -15,7 +15,7 @@ public class CategoriesMapper implements theMapper<category, CategoryDTO> {
 
 	private CarsMapper carMap;
 
-	public CategoryMapper(CarsMapper carMap) {
+	public CategoriesMapper(CarsMapper carMap) {
 		super();
 		this.carMap = carMap;
 	}

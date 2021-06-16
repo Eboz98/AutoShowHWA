@@ -15,16 +15,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.cars.domains.category;
 import com.qa.cars.dtos.CategoryDTO;
-import com.qa.cars.services.CategoriesService;
+import com.qa.cars.services.CategoryService;
 
 @RestController
 @RequestMapping("/category")
 public class CategoryController {
 
-	private CategoriesService service;
+	private CategoryService service;
 
 	@Autowired
-	public CategoryController(CategoriesService service) {
+	public CategoryController(CategoryService service) {
 		super();
 		this.service = service;
 	}
@@ -40,7 +40,7 @@ public class CategoryController {
 	}
 
 	@GetMapping("/find/{id}")
-	public CategoryDTO find(@PathVariable int id) {
+	public CategoryDTO findCategory(@PathVariable int id) {
 		return this.service.findCategory(id);
 	}
 

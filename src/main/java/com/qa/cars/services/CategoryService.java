@@ -11,16 +11,16 @@ import org.springframework.stereotype.Service;
 import com.qa.cars.domains.category;
 import com.qa.cars.dtos.CategoryDTO;
 import com.qa.cars.repos.CategoryRepo;
-import com.qa.cars.utilities.CategoryMapper;
+import com.qa.cars.utilities.CategoriesMapper;
 
 @Service
 public class CategoryService {
 
 	private CategoryRepo repo;
 
-	private CategoryMapper mapper;
+	private CategoriesMapper mapper;
 
-	public CategoryService(CategoryRepo repo, CategoryMapper mapper) {
+	public CategoryService(CategoryRepo repo, CategoriesMapper mapper) {
 		super();
 		this.repo = repo;
 		this.mapper = mapper;
@@ -31,7 +31,7 @@ public class CategoryService {
 		return this.mapper.mapToDTO(saved);
 	}
 
-	public CategoryDTO find(Integer id) {
+	public CategoryDTO findCategory(Integer id) {
 		Optional<category> optionalCategory = this.repo.findById(id);
 		category found = optionalCategory.orElseThrow(() -> new EntityNotFoundException());
 		return this.mapper.mapToDTO(found);
