@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Runner {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Runner.class, args);
+		SpringApplication.run(Runner.class, args); // Branches keeps changing the name to fix it refactor the main as Runner.java
 	}
 
 }
