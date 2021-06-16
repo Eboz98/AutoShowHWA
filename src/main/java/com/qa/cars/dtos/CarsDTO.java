@@ -10,7 +10,7 @@ public class CarsDTO {
 	private String colour;
 
 	public CarsDTO() {
-		
+
 	}
 
 	public CarsDTO(Integer id, String make, String model, String colour) {

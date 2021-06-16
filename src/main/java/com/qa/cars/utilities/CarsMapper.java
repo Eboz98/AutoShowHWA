@@ -1,11 +1,9 @@
 package com.qa.cars.utilities;
 
 import org.springframework.stereotype.Service;
+
 import com.qa.cars.domains.Cars;
 import com.qa.cars.dtos.CarsDTO;
-
-
-//import com.qa.cars.utilities.theMapper;
 
 @Service
 public class CarsMapper implements theMapper<Cars, CarsDTO> {

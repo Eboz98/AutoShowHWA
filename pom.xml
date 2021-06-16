@@ -13,6 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>AutoShowHWA</name>
 	<description>Demo Hobby Project for QA Academy with Spring Boot.</description>
+	<packaging>jar</packaging>
 	<properties>
 		<java.version>16</java.version>
 	</properties>
