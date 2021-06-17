@@ -10,10 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.qa.cars.domains.category;
+import com.qa.cars.domains.Category;
 import com.qa.cars.dtos.CategoryDTO;
 import com.qa.cars.services.CategoryService;
 
@@ -29,13 +28,13 @@ public class CategoryController {
 		this.service = service;
 	}
 
-	@RequestMapping(path = "/test", method = RequestMethod.GET)
+	@GetMapping("/test")
 	public String testCategory() {
 		return "These are the categories!";
 	}
 
 	@PostMapping("/create")
-	public CategoryDTO createCategory(@RequestBody category cat) {
+	public CategoryDTO createCategory(@RequestBody Category cat) {
 		return this.service.createCategory(cat);
 	}
 
@@ -50,7 +49,7 @@ public class CategoryController {
 	}
 
 	@PutMapping("/update/{id}")
-	public CategoryDTO updateCategory(@RequestBody category cat, @PathVariable int id) {
+	public CategoryDTO updateCategory(@RequestBody Category cat, @PathVariable int id) {
 		return this.service.updateCategory(id, cat);
 	}
 

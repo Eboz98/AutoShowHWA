@@ -8,7 +8,7 @@ import javax.persistence.EntityNotFoundException;
 
 import org.springframework.stereotype.Service;
 
-import com.qa.cars.domains.category;
+import com.qa.cars.domains.Category;
 import com.qa.cars.dtos.CategoryDTO;
 import com.qa.cars.repos.CategoryRepo;
 import com.qa.cars.utilities.CategoriesMapper;
@@ -26,23 +26,23 @@ public class CategoryService {
 		this.mapper = mapper;
 	}
 
-	public CategoryDTO createCategory(category cat) {
-		category saved = this.repo.save(cat);
+	public CategoryDTO createCategory(Category cat) {
+		Category saved = this.repo.save(cat);
 		return this.mapper.mapToDTO(saved);
 	}
 
 	public CategoryDTO findCategory(Integer id) {
-		Optional<category> optionalCategory = this.repo.findById(id);
-		category found = optionalCategory.orElseThrow(() -> new EntityNotFoundException());
+		Optional<Category> optionalCategory = this.repo.findById(id);
+		Category found = optionalCategory.orElseThrow(() -> new EntityNotFoundException());
 		return this.mapper.mapToDTO(found);
 	}
 
-	public CategoryDTO updateCategory(Integer id, category newData) {
-		category existing = this.repo.findById(id).orElseThrow(() -> new EntityNotFoundException());
+	public CategoryDTO updateCategory(Integer id, Category newData) {
+		Category existing = this.repo.findById(id).orElseThrow(() -> new EntityNotFoundException());
 
 		existing.setName(newData.getName());
 
-		category updated = this.repo.save(existing);
+		Category updated = this.repo.save(existing);
 
 		return this.mapper.mapToDTO(updated);
 	}
@@ -53,11 +53,11 @@ public class CategoryService {
 	}
 
 	public List<CategoryDTO> getCategories() {
-		List<category> categories = this.repo.findAll();
+		List<Category> categories = this.repo.findAll();
 
 		List<CategoryDTO> dtos = new ArrayList<>();
 
-		for (category cat : categories) {
+		for (Category cat : categories) {
 			CategoryDTO dto = this.mapper.mapToDTO(cat);
 			dtos.add(dto);
 		}
