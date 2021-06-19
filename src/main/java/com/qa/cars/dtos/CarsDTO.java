@@ -28,7 +28,6 @@ public class CarsDTO {
 		this.colour = colour;
 	}
 
-	// REQUIRED
 
 	public Integer getId() {
 		return id;

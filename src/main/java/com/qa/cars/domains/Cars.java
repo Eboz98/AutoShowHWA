@@ -30,6 +30,7 @@ public class Cars {
 	public Cars(Integer id, String make, String model, String colour) {
 		super();
 		this.id = id;
+		this.make = make;
 		this.model = model;
 		this.colour = colour;
 	}
