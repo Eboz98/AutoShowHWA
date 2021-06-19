@@ -26,8 +26,23 @@ public class Cars {
 	public Cars() {
 		
 	}
+	
+	
+	
 
-	public Cars(Integer id, String make, String model, String colour) {
+	public Cars(Integer id, String make, String model, String colour, Category category) {
+		super();
+		this.id = id;
+		this.make = make;
+		this.model = model;
+		this.colour = colour;
+		this.category = category;
+	}
+
+
+
+
+	public Cars(Integer id, String make, String model, String colour ) {
 		super();
 		this.id = id;
 		this.make = make;

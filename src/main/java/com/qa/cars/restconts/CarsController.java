@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.cars.domains.Cars;
+import com.qa.cars.dtos.CarsDTO;
 import com.qa.cars.services.CarsService;
 
 @RestController
@@ -34,17 +35,17 @@ public class CarsController {
 	}
 
 	@PostMapping("/create")
-	public Cars createCar(@RequestBody Cars car) {
+	public CarsDTO createCar(@RequestBody Cars car) {
 		return this.service.createCar(car);
 	}
 
 	@GetMapping("/find/{id}")
-	public Cars find(@PathVariable int id) {
+	public CarsDTO find(@PathVariable int id) {
 		return this.service.findCar(id);
 	}
 
 	@GetMapping("/")
-	public List<Cars> getCars() {
+	public List<CarsDTO> getCars() {
 		return this.service.getCars();
 	}
 
@@ -54,7 +55,7 @@ public class CarsController {
 	}
 
 	@PutMapping("/update/{id}")
-	public Cars updateCar(@RequestBody Cars car, @PathVariable int id) {
+	public CarsDTO updateCar(@RequestBody Cars car, @PathVariable int id) {
 		return this.service.updateCar(id, car);
 	}
 
@@ -64,4 +65,3 @@ public class CarsController {
 	}
 
 }
-
