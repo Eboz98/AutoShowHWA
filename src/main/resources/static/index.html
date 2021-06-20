@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+</head>
+<style>
+    a.card-link {
+        cursor: fixed;
+    }
+</style>
+</head>
+
+<body>
+    <h1>AutoShow</h1>
+    <main class="container">
+        <div class="row">
+            <section class="col">
+                <form id="createForm">
+                    <label for="make" class="form-label">Make</label>
+                    <input id="make" name="make" type="text" class="form-control">
+                    <label for="Model" class="form-label">Model</label>
+                    <input id="Model" name="Model" type="text" class="form-control">
+                    <label for="Colour" class="form-label">Colour</label>
+                    <input id="Colour" name="Colour" type="text" class="form-control mb-2">
+
+
+                    <label for="Category">Choose a Catalog:</label>
+
+                    <select name="Category" id="Category">
+                        <option value="JDM">JDM</option>
+                        <option value="Super Cars">Super Cars</option>
+                        <option value="Sedans">Sedans</option>
+                    </select>
+                    <button type="reset" class="btn btn-primary">Reset</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </section>
+            <section class="col">
+                <div id="output" class="card-group row row-cols-4 g-4">
+                </div>
+            </section>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+            integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="scripts.js"></script>
+    </main>
+</body>
+
+</html>
