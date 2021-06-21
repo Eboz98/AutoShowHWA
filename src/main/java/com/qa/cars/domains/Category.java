@@ -1,5 +1,6 @@
 package com.qa.cars.domains;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -19,7 +20,7 @@ public class Category {
 	private String name;
 
 	@OneToMany(mappedBy = "category")
-	private List<Cars> cars;
+	private List<Cars> cars = new ArrayList<>();
 
 	public Integer getId() {
 		return id;
