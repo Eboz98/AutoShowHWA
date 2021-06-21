@@ -72,8 +72,5 @@ public class CarsService {
 		return dtos;
 	}
 
-	private List<CarsDTO> getCars_WITH_STREAMS() { // First stream tries.
-		return this.repo.findAll().stream().map(car -> this.mapper.mapToDTO(car)).collect(Collectors.toList());
-	}
 
 }
