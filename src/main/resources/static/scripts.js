@@ -6,6 +6,19 @@ const getCars = async () => {
     res.data.forEach(car => renderCar(car));
 }
 
+function getDropDownCategories(categories) {
+    const selection = document.getElementById("Category");
+    selection.innerHTML = "";
+
+    categories.forEach((data) => {
+        const option = document.createElement("option");
+        option.innerHTML = data.name
+        option.value = data.id;
+        selection.appendChild(option);
+    })
+}
+
+
 const renderCar = ({ id, make, model, colour, category }) => {
     const column = document.createElement("div");
     column.className = "col";
@@ -65,15 +78,27 @@ const renderCar = ({ id, make, model, colour, category }) => {
     output.appendChild(column);
 }
 
+
+
 const CatsOutput = document.getElementById("CatsOutput");
 
 const getCategory = async () => {
     const res = await axios.get("/category/");
     CatsOutput.innerHTML = "";
+    output.innerHTML = "";
     res.data.forEach(cat => renderCategory(cat));
+    getDropDownCategories(res.data);
 }
 
-const renderCategory = ({ id, name }) => {
+const renderCategory = ({ id, name, cars }) => {
+
+    for (let i = 0; i < cars.length; i++) {
+        cars[i].category = {
+            "id": id,
+            "name": name
+        };
+        renderCar(cars[i]);
+    }
     const column = document.createElement("div");
     column.className = "col";
 
@@ -118,8 +143,6 @@ const renderCategory = ({ id, name }) => {
 }
 
 
-getCars();
-
 document.getElementById("createForm").addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -127,12 +150,12 @@ document.getElementById("createForm").addEventListener("submit", function (event
         make: this.make.value,
         model: this.Model.value,
         colour: this.Colour.value,
-        category: this.category.id.value
+        category: { "id": this.Category.value }
     };
 
     axios.post("/cars/create", data)
         .then(res => {
-            getCars();
+            getCategory();
             this.reset();
             this.make.focus();
         }).catch(err => console.log(err));
@@ -142,7 +165,7 @@ document.getElementById("createForm").addEventListener("submit", function (event
 
 const deleteCar = async (id) => {
     const res = await axios.delete(`/cars/remove/${id}`);
-    getCars();
+    getCategory();
 };
 
 
@@ -177,6 +200,38 @@ document.getElementById("createCategoryForm").addEventListener("submit", functio
 
 });
 
+
+
+getCategory();
+
+document.getElementById("Category").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const data = {
+        name: this.name.value
+
+    };
+
+    axios.post("/category/create", data)
+        .then(res => {
+            getCategory();
+            this.reset();
+            this.name.focus();
+        }).catch(err => console.log(err));
+
+    console.log(this);
+
+
+    axios.put("/category/update", data)
+        .then(resCat => {
+            getCategory();
+            this.reset();
+        }).catch(err => console.log(err));
+
+    console.log(this);
+
+
+});
 
 const deleteCategory = async (id) => {
     const res = await axios.delete(`/category/remove/${id}`);
