@@ -1,3 +1,5 @@
+"use strict"; //Cleaner Code.
+
 const output = document.getElementById("output");
 
 const getCars = async () => {
@@ -35,7 +37,7 @@ const renderCar = ({ id, make, model, colour, category }) => {
 
     const categoryText = document.createElement("p");
     categoryText.className = "card-text";
-    categoryText.innerText = `Category: ${category.name}`;
+    categoryText.innerText = `Category: ${category}`;
     cardBody.appendChild(categoryText);
 
     const cardFooter = document.createElement("div");
@@ -123,11 +125,12 @@ getCars();
 document.getElementById("createForm").addEventListener("submit", function (event) {
     event.preventDefault();
 
+    
     const data = {
         make: this.make.value,
         model: this.Model.value,
         colour: this.Colour.value,
-        category: this.category.id.value
+       category: {name: this.name.value}
     };
 
     axios.post("/cars/create", data)
