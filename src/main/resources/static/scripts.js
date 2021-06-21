@@ -1,5 +1,3 @@
-'use strict';
-
 const output = document.getElementById("output");
 
 const getCars = async () => {
@@ -37,7 +35,7 @@ const renderCar = ({ id, make, model, colour, category }) => {
 
     const categoryText = document.createElement("p");
     categoryText.className = "card-text";
-    categoryText.innerText = `Category: ${category}`;
+    categoryText.innerText = `Category: ${category.name}`;
     cardBody.appendChild(categoryText);
 
     const cardFooter = document.createElement("div");
@@ -87,10 +85,10 @@ const renderCategory = ({ id, name }) => {
     cardBody.className = "card-body";
     card.appendChild(cardBody);
 
-    const makeText = document.createElement("p");
-    makeText.className = "card-text";
-    makeText.innerText = `Category Name: ${name}`;
-    cardBody.appendChild(makeText);
+    const CategoryText = document.createElement("p");
+    CategoryText.className = "card-text";
+    CategoryText.innerText = `Category Name: ${name}`;
+    cardBody.appendChild(CategoryText);
 
     const cardFooter = document.createElement("div");
     cardFooter.className = "card-footer";
@@ -129,7 +127,7 @@ document.getElementById("createForm").addEventListener("submit", function (event
         make: this.make.value,
         model: this.Model.value,
         colour: this.Colour.value,
-        category: this.id.value
+        category: this.category.id.value
     };
 
     axios.post("/cars/create", data)
