@@ -22,15 +22,21 @@ public class CategoriesMapper implements theMapper<Category, CategoryDTO> {
 
 	@Override
 	public CategoryDTO mapToDTO(Category entity) {
-		CategoryDTO dto = new CategoryDTO();
-		dto.setId(entity.getId());
-		dto.setName(entity.getName());
-		List<CarsDTO> cars = new ArrayList<>();
-		for (Cars car : entity.getCars()) {
-			cars.add(this.carMap.mapToDTO(car));
+		try {
+			CategoryDTO dto = new CategoryDTO();
+			dto.setId(entity.getId());
+			dto.setName(entity.getName());
+			List<CarsDTO> cars = new ArrayList<>();
+			for (Cars car : entity.getCars()) {
+				cars.add(this.carMap.mapToDTO(car));
+			}
+			dto.setCars(cars);
+			return dto;
+		} catch (NullPointerException e) {
+			System.out.println("NullPointerException thrown!");
+
 		}
-		dto.setCars(cars);
-		return dto;
+		return null;
 	}
 
 	@Override
