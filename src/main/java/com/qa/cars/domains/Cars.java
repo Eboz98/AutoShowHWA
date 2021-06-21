@@ -16,20 +16,29 @@ public class Cars {
 	private String make;
 
 	private String model;
-	
+
 	private String colour;
-	
 
 	@ManyToOne
 	private Category category;
-	
+
 	public Cars() {
-		
+
+	}
+
+	public Cars(Integer id, String make, String model, String colour, Category category) {
+		super();
+		this.id = id;
+		this.make = make;
+		this.model = model;
+		this.colour = colour;
+		this.category = category;
 	}
 
 	public Cars(Integer id, String make, String model, String colour) {
 		super();
 		this.id = id;
+		this.make = make;
 		this.model = model;
 		this.colour = colour;
 	}
@@ -136,6 +145,4 @@ public class Cars {
 				+ category + "]";
 	}
 
-	
 }
-	
